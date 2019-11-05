@@ -15,7 +15,7 @@ namespace TPFinal.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "page.";
 
             return View();
         }
