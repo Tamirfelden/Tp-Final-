@@ -62,6 +62,10 @@ namespace TPFinal.Models
             return ListNoticias;
 
         }
+        public static List <> TraerUsuarios()
+        {
+
+        }
     }
 }
 

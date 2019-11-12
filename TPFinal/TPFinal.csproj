@@ -159,6 +159,7 @@
     <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Noticia.cs" />
     <Compile Include="Models\TipoNoticias.cs" />
+    <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -199,10 +200,10 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\BackOffice\Registro.cshtml" />
+    <Content Include="Views\BackOffice\Login.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\BackOffice\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
