@@ -156,6 +156,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BD.cs" />
+    <Compile Include="Models\Categorias.cs" />
     <Compile Include="Models\Noticia.cs" />
     <Compile Include="Models\TipoNoticias.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

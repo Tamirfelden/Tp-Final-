@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace TeleNews.Models
+namespace TPFinal.Models
 {
     public class Noticias
     {
@@ -13,6 +13,7 @@ namespace TeleNews.Models
         private string _Imagen;
         private string _Descripcion;
         private bool _Destacada;
+        private string _Noticia;
 
         public int IdNoticia { get => _IdNoticia; set => _IdNoticia = value; }
         public int IdTipoNoticia { get => _idTipoNoticia; set => _idTipoNoticia = value; }
@@ -20,5 +21,8 @@ namespace TeleNews.Models
         public string Imagen { get => _Imagen; set => _Imagen = value; }
         public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
         public bool Destacada { get => _Destacada; set => _Destacada = value; }
+        public string Noticia { get => _Noticia; set => _Noticia = value; }
+
+        
     }
 }

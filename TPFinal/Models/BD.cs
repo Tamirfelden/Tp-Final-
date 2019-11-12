@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
+using TPFinal.Models;
 
 namespace TPFinal.Models
 {
@@ -19,12 +20,12 @@ namespace TPFinal.Models
         {
             Conex.Close();
         }
-        public static List<CategoriaNoticia> TraerCategoria()
+        public static List<TipoNoticias> TraerCategoria()
         {
-            List<Categoria> ListCategoria = new List<Categoria>();
+            List<TipoNoticias> ListCategoria = new List<TipoNoticias>();
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandType = System.Data.CommandType.storedprocedures;
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.CommandText = "sp_TraerCategoria";
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
@@ -59,10 +60,10 @@ namespace TPFinal.Models
 
             Conexion.Close();
             return ListNoticias;
-        }
-       
+
         }
     }
+}
 
 
 

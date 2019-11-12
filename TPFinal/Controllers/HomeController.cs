@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using TeleNews.Models;
-namespace TeleNews.Controllers
+using TPFinal.Models;
+namespace TPFinal.Controllers
 {
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
             Noticias NT;
-            TipoNoticias TNT;
-            Noticias Destacada = BD.TraerDestacada();
-            ViewBag.Destacada = Destacada;
+            TipoNoticias TNT;            
             return View();
+
         }
 
         public ActionResult About()
