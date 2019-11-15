@@ -1,15 +1,15 @@
 ﻿
 @{
-    
+
     @using (Html.BeginForm("Registro", "Backoffice", FormMethod.Post))
-        {
-        <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) @Html.ValidationMessageFor(model => model.Nombre); <br />
-        <p>Contraseña:</p> @Html.PasswordFor(model => model.Pass) @Html.ValidationMessageFor(model => model.Pass); <br />
+    {
+        <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br />
+        <p>Contraseña:</p> @Html.PasswordFor(model => model.Clave) @Html.ValidationMessageFor(model => model.Clave); <br />
         <input type="submit" value="Enviar" />
+
+
+
     }
 
-        
-}
-
-<h2>Login</h2>
+    <h2>Login</h2>
 
