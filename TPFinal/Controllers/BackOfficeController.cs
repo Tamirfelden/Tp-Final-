@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using TPFinal.Models;
+
 
 namespace TeleNews.Controllers
 {
@@ -15,13 +17,34 @@ namespace TeleNews.Controllers
             return View();
 
         }
-        public ActionResult Login()
+        [HttpPost]
+        public ActionResult Login(Usuarios user)
         {
-            return View("Login");
+            if (ModelState.IsValid)
+            {
+                BD.ValidarUsuarios(user);
+                return View("Correcto");
+            }
+            else
+            {
+                return View("Login", user);
+            }
+            
         }
-        public ActionResult CrearUsuarios()
-        {
-            return View("Correcto");
+
+        [HttpPost]
+        public ActionResult CrearUsuarios(Usuarios user)
+        {         
+            if (ModelState.IsValid)
+            {
+                BD.CrearUsuarios(user);
+                return View("Correcto");
+            }
+            else
+            {
+                return View("Registro", user);
+            }
+            
         }
         public ActionResult Registro()
         {

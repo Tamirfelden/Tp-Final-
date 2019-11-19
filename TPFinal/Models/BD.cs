@@ -11,7 +11,7 @@ namespace TPFinal.Models
     {
         private static SqlConnection Conectar()
         {
-            string SC = "Server =.; Database = Am Israel Defense; Trusted_Connection = True;";
+            string SC = "Server =.; Database = Am Israel Defense Web; user id = alumno; password = alumno1;";
             SqlConnection Conex = new SqlConnection(SC);
             Conex.Open();
             return Conex;
@@ -63,27 +63,44 @@ namespace TPFinal.Models
 
         }
 
-        public static List<Usuarios> CrearUsuarios()
+        public static void CrearUsuarios(Usuarios user)
         {
-            List<Usuarios> ListNoticias = new List<Usuarios>();
+            
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.CommandText = "sp_CrearUsuarios";
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                int IdUsuario = Convert.ToInt32(dataReader["IdUsuarios"]);
-                string Nombre = Convert.ToString(dataReader["Nombre"]);
-                string Apellido = Convert.ToString(dataReader["Apellido"]);
-                string Email = Convert.ToString(dataReader["Email"]);
-                string Clave = Convert.ToString(dataReader["Clave"]);               
+            Consulta.Parameters.AddWithValue("Nombre", user.Nombre);
+            Consulta.Parameters.AddWithValue("Apellido", user.Apellido);
+            Consulta.Parameters.AddWithValue("Email", user.Mail);
+            Consulta.Parameters.AddWithValue("Contraseña", user.Clave);
 
-            }
+            Consulta.ExecuteNonQuery();
 
             Conexion.Close();
-            return ListNoticias;
+        }
 
+        public static bool ValidarUsuarios(Usuarios user)
+        {
+            bool Existe;
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            SqlCommand cmd = new SqlCommand("sp_VerificarUsuario", Conexion);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Nombre", user.Nombre);
+            cmd.Parameters.AddWithValue("@Clave", user.Clave);
+
+            SqlDataReader Lector = cmd.ExecuteReader();
+            if(Lector.Read())
+            {
+                Existe = true;
+            }
+            else
+            {
+                Existe = false;
+            }
+            Desconectar(Conexion);
+            return Existe;
         }
     }
 }

@@ -10,8 +10,7 @@ namespace TPFinal.Controllers
     {
         public ActionResult Index()
         {
-            Noticias NT;
-            TipoNoticias TNT;            
+                   
             return View();
 
         }

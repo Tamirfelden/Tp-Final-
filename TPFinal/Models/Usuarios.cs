@@ -14,6 +14,6 @@ namespace TPFinal.Models
         public string Apellido { get; set; }
         public string Mail { get; set; }
         [Required(ErrorMessage = "Ingrese Contraseña")]
-        public string Clave { get; set; };
+        public string Clave { get; set; }
     }
 }

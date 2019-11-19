@@ -1,11 +1,17 @@
 ﻿@using TPFinal.Models
-@model  Usuarios
+@model Usuarios
+
+<h2>Registro</h2>
+
+
 @{
 
     @Html.BeginForm("CrearUsuarios", "BackOffice", FormMethod.Post)
     {
-        <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br />
+        <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br /> @Html.ValidationMessageFor(model => model.Nombre); <br />
         <p>Contraseña:</p> @Html.PasswordFor(model => model.Clave) @Html.ValidationMessageFor(model => model.Clave); <br />
+        <p>Mail:</p> @Html.TextBoxFor(model => model.Mail) <br />
+        <p>Apellido:</p> @Html.TextBoxFor(model => model.Apellido) <br />
         <input type="submit" value="Enviar" />
     }
 
