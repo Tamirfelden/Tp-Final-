@@ -15,5 +15,18 @@ namespace TeleNews.Controllers
             return View();
 
         }
+        public ActionResult Login()
+        {
+            return View("Login");
+        }
+        public ActionResult CrearUsuarios()
+        {
+            return View("Correcto");
+        }
+        public ActionResult Registro()
+        {
+            return View("Registro");
+        }
+
     }
 }

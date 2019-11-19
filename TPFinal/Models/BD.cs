@@ -62,8 +62,27 @@ namespace TPFinal.Models
             return ListNoticias;
 
         }
-        public static List <> TraerUsuarios()
+
+        public static List<Usuarios> CrearUsuarios()
         {
+            List<Usuarios> ListNoticias = new List<Usuarios>();
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_CrearUsuarios";
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                int IdUsuario = Convert.ToInt32(dataReader["IdUsuarios"]);
+                string Nombre = Convert.ToString(dataReader["Nombre"]);
+                string Apellido = Convert.ToString(dataReader["Apellido"]);
+                string Email = Convert.ToString(dataReader["Email"]);
+                string Clave = Convert.ToString(dataReader["Clave"]);               
+
+            }
+
+            Conexion.Close();
+            return ListNoticias;
 
         }
     }
