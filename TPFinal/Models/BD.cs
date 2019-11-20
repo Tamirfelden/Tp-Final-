@@ -73,7 +73,7 @@ namespace TPFinal.Models
             Consulta.Parameters.AddWithValue("Nombre", user.Nombre);
             Consulta.Parameters.AddWithValue("Apellido", user.Apellido);
             Consulta.Parameters.AddWithValue("Email", user.Mail);
-            Consulta.Parameters.AddWithValue("Contraseña", user.Clave);
+            Consulta.Parameters.AddWithValue("Clave", user.Clave);
 
             Consulta.ExecuteNonQuery();
 

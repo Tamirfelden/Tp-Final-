@@ -17,7 +17,8 @@ namespace TeleNews.Controllers
             return View();
 
         }
-        [HttpPost]
+
+        /*[HttpPost]*/
         public ActionResult Login(Usuarios user)
         {
             if (ModelState.IsValid)
