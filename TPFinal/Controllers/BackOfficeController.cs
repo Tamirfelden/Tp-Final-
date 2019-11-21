@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using TPFinal.Models;
 
 
+
 namespace TeleNews.Controllers
 {
     public class BackofficeController : Controller
@@ -18,18 +19,33 @@ namespace TeleNews.Controllers
 
         }
 
-        /*[HttpPost]*/
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+
+        [HttpPost]
         public ActionResult Login(Usuarios user)
         {
+            bool Existe = BD.ValidarUsuarios(user);
             if (ModelState.IsValid)
             {
-                BD.ValidarUsuarios(user);
-                return View("Correcto");
+                if (Existe)
+                {
+                    return View("Correcto");
+                }
+                else
+                {
+                    return View("Login");
+                    
+                }
             }
             else
             {
-                return View("Login", user);
+                return View("Login");
             }
+            
             
         }
 
