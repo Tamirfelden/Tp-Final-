@@ -203,6 +203,7 @@
     <Content Include="Views\BackOffice\Registro.cshtml" />
     <Content Include="Views\BackOffice\Login.cshtml" />
     <Content Include="Views\BackOffice\Correcto.cshtml" />
+    <Content Include="Views\BackOffice\CrearNoticia.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -1,0 +1,44 @@
+﻿@using TPFinal.Models
+<body>
+    <h3>Back Office</h3>
+    @Html.ActionLink("Agregar Noticia", "IngresarNoticiaForm", "Backoffice", null, new { Accion = "Insertar" })
+
+    @foreach (Noticia UnaNoticia in ViewBag.L)
+    {
+        <div>
+            <table>
+                <tr>
+                    <td><img src='~/Content/ImagenesNoticias/@UnaNoticia.Imagen' class="ImgListaNoticias"></td>
+                    <td>@UnaNoticia.Titulo</td>
+                    @if (UnaNoticia.Destacada == false)
+                    {
+                        <td>
+                            <a href='@Url.Action("Destacar", "BackOffice", new { idNoticia = UnaNoticia.idNoticia })'>
+                                <img src='~/Content/NoDestacada.png' class="EstrellaDestacada" />
+                            </a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            <a href='@Url.Action("Destacar", "BackOffice",new { idNoticia = UnaNoticia.idNoticia })'>
+                                <img src='~/Content/Destacada.png' class="EstrellaDestacada" />
+                            </a>
+                        </td>
+                    }
+                    <td>
+                        <a href='@Url.Action("IngresarNoticiaForm", "BackOffice",new { Accion="Actualizar", idNoticia = UnaNoticia.idNoticia })'>
+                            <img src='~/Content/edit.png' class="EstrellaDestacada" />
+                        </a>
+                    </td>
+                    <td>
+                        <a href='@Url.Action("EliminarNoticia", "BackOffice",new {idNoticia = UnaNoticia.idNoticia })'>
+                            <img src='~/Content/delete.png' class="EstrellaDestacada" />
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    }
+</body>
+
