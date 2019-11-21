@@ -16,10 +16,12 @@ namespace TPFinal.Models
             Conex.Open();
             return Conex;
         }
+
         private static void Desconectar(SqlConnection Conex)
         {
             Conex.Close();
         }
+
         public static List<TipoNoticias> TraerCategoria()
         {
             List<TipoNoticias> ListCategoria = new List<TipoNoticias>();
