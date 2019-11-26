@@ -1,1 +1,8 @@
-﻿
+﻿@using TPFinal.Models
+ 
+<h1>Noticias</h1>
+
+@foreach(Noticias Not in ViewBag.ListaNoticias)
+{
+    @Not.Titulo;
+}

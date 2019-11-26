@@ -44,27 +44,26 @@ namespace TPFinal.Models
         public static List<Noticias> TraerNoticias()
         {
             List<Noticias> ListNoticias = new List<Noticias>();
+            Noticias obj = new Noticias();
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_TraerNoticia";
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "select IdNoticia, Titulo, Descripcion,Multimedia, fkCategoria from Noticias";
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
             {
-                int IdNoticia = Convert.ToInt32(dataReader["IdNoticia"]);
-                int fkCategoria = Convert.ToInt32(dataReader["fkCategoria"]);
-                string Titulo = Convert.ToString(dataReader["Titulo"]);
-                string Descripcion = Convert.ToString(dataReader["Descripcion"]);
-                bool Destacado = Convert.ToBoolean(dataReader["Destacado"]);
-                string Multimedia = Convert.ToString(dataReader["Multimedia"]);
+                obj.IdNoticia = Convert.ToInt32(dataReader["IdNoticia"]);
+                obj.Titulo = Convert.ToString(dataReader["Titulo"]);
+                obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
+                obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
+                obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
 
+                ListNoticias.Add(obj);
             }
 
             Conexion.Close();
             return ListNoticias;
-
         }
-
         public static void CrearUsuarios(Usuarios user)
         {
             
