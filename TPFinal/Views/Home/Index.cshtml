@@ -1,8 +1,26 @@
 ﻿@using TPFinal.Models
  
 <h1>Noticias</h1>
+<table>
+    @foreach (Noticias Not in ViewBag.ListaNoticias)
+    {
 
-@foreach(Noticias Not in ViewBag.ListaNoticias)
-{
-    @Not.Titulo;
-}
+        <tr>
+            <th>@Not.Titulo</th>
+         
+        </tr>
+        <tr>
+            @{
+                string desc = Not.Descripcion;
+                if (desc.Length > 50)
+                {
+                    desc = desc.Substring(1, 50);
+                }
+                <td>@desc ...</td>
+            }
+
+        </tr>
+
+
+    }
+</table>

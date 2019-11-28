@@ -43,8 +43,10 @@ namespace TPFinal.Models
 
         public static List<Noticias> TraerNoticias()
         {
+      
             List<Noticias> ListNoticias = new List<Noticias>();
-            Noticias obj = new Noticias();
+
+      
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.Text;
@@ -52,11 +54,13 @@ namespace TPFinal.Models
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
             {
+                Noticias obj = new Noticias();
                 obj.IdNoticia = Convert.ToInt32(dataReader["IdNoticia"]);
                 obj.Titulo = Convert.ToString(dataReader["Titulo"]);
                 obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
                 obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
                 obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
+                
 
                 ListNoticias.Add(obj);
             }
