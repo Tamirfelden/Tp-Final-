@@ -214,6 +214,9 @@
     <Content Include="Views\BackOffice\Correcto.cshtml" />
     <Content Include="Views\BackOffice\CrearNoticia.cshtml" />
     <Content Include="Views\Home\Noticias.cshtml" />
+    <Content Include="Views\BackOffice\BackOffice.cshtml" />
+    <Content Include="Views\BackOffice\SubirNoticias.cshtml" />
+    <Content Include="Views\BackOffice\BajarNoticias.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

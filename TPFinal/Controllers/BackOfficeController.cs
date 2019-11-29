@@ -11,6 +11,16 @@ namespace TeleNews.Controllers
 {
     public class BackofficeController : Controller
     {
+        public ActionResult SubirNoticias()
+        {           
+            return View();
+        }
+        public ActionResult BajarNoticias()
+        {
+
+            return View();
+
+        }
         // GET: Backoffice
         public ActionResult Index()
         {
@@ -33,7 +43,15 @@ namespace TeleNews.Controllers
             {
                 if (Existe)
                 {
-                    return View("Correcto");
+                    if (user.Nombre == "backoffice" && user.Clave == "backoffice")
+                    {
+                        return View("BackOffice");
+                    }
+                    else
+                    {
+                        return View("Correcto");
+                    }
+                    
                 }
                 else
                 {

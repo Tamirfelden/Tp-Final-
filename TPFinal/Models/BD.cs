@@ -131,6 +131,28 @@ namespace TPFinal.Models
             Conexion.Close();
             return obj;
         }
+        public static Noticias SubirNoticia(string Titulo, string Descripcion, string Multimedia, string fkCategoria )
+        {
+            Noticias obj = new Noticias();
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "insert into noticias " + Titulo + Descripcion + Multimedia + fkCategoria + " ";
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+
+
+                obj.Titulo = Convert.ToString(dataReader["Titulo"]);
+                obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
+                obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
+                obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
+
+            }
+
+            Conexion.Close();
+            return obj;
+        }
     }
 }
 
