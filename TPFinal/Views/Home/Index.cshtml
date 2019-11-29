@@ -4,7 +4,6 @@
 <table>
     @foreach (Noticias Not in ViewBag.ListaNoticias)
     {
-
         <tr>
             <th>@Not.Titulo</th>
          
@@ -16,11 +15,15 @@
                 {
                     desc = desc.Substring(1, 50);
                 }
-                <td>@desc ....</td>
+                <td>@desc ...</td>
             }
 
         </tr>
-
+        <tr>
+    <th>
+       <img src=@Not.Multimedia alt="sfhdi"/>
+    </th>
+        </tr>
 
     }
 </table>
