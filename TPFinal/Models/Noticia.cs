@@ -18,6 +18,15 @@ namespace TPFinal.Models
            
         }
 
+        public Noticias(int IdNoticia, string Titulo, string Multimedia, string Descripcion, string fkCategoria)
+        {
+            _IdNoticia = IdNoticia;
+            _Titulo = Titulo;
+            _Multimedia = Multimedia;
+            _Descripcion = Descripcion;
+            _fkCategoria = fkCategoria;
+        }
+
         public int IdNoticia { get => _IdNoticia; set => _IdNoticia = value; }
         public string Titulo { get => _Titulo; set => _Titulo = value; }
         public string Multimedia { get => _Multimedia; set => _Multimedia = value; }

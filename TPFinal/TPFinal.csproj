@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\BD.sql" />
+    <Content Include="Content\Am Israel Defense Logo.jpg" />
     <Content Include="Content\anitisionismo.png" />
     <Content Include="Content\ataque.png" />
     <Content Include="Content\bandera.png" />
@@ -172,7 +173,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\elecciones.png" />
+    <Content Include="Content\Facebook.png" />
+    <Content Include="Content\Instagram.jpg" />
     <Content Include="Content\partido.png" />
+    <Content Include="Content\twitter.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

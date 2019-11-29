@@ -43,10 +43,10 @@ namespace TPFinal.Models
 
         public static List<Noticias> TraerNoticias()
         {
-      
+
             List<Noticias> ListNoticias = new List<Noticias>();
 
-      
+
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.Text;
@@ -60,7 +60,7 @@ namespace TPFinal.Models
                 obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
                 obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
                 obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
-                
+
 
                 ListNoticias.Add(obj);
             }
@@ -70,7 +70,7 @@ namespace TPFinal.Models
         }
         public static void CrearUsuarios(Usuarios user)
         {
-            
+
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
@@ -96,7 +96,7 @@ namespace TPFinal.Models
             cmd.Parameters.AddWithValue("@Clave", user.Clave);
 
             SqlDataReader Lector = cmd.ExecuteReader();
-            if(Lector.Read())
+            if (Lector.Read())
             {
                 Existe = true;
             }
@@ -109,32 +109,27 @@ namespace TPFinal.Models
         }
 
 
-        public static List<Noticias> TraerUnaNoticia()
+        public static Noticias  TraerUnaNoticia(int id)
         {
-
-            List<Noticias> ListNoticia = new List<Noticias>();
-
-
+            Noticias obj = new Noticias();
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.Text;
-            Consulta.CommandText = "select Titulo, Descripcion, Multimedia, fkCategoria from Noticias where @id = IdNoticia ";
+            Consulta.CommandText = "select Titulo, Descripcion, Multimedia, fkCategoria from Noticias where IdNoticia =" + id + " ";
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
             {
-                Noticias obj = new Noticias();
-                obj.IdNoticia = Convert.ToInt32(dataReader["IdNoticia"]);
+ 
+                
                 obj.Titulo = Convert.ToString(dataReader["Titulo"]);
                 obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
                 obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
                 obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
 
-
-                ListNoticia.Add(obj);
             }
 
             Conexion.Close();
-            return ListNoticia;
+            return obj;
         }
     }
 }

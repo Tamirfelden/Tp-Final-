@@ -16,14 +16,14 @@
                     desc = desc.Substring(1, 50);
                 }
 
-                <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia })">...</a></td>
+                <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">...</a></td>
 
             }
 
         </tr>
         <tr>
     <th>
-       <img src=@Not.Multimedia alt="sfhdi"/>
+       <img src="~/Content/@Not.Multimedia" alt="Se rompio la foto:("/>
     </th>
         </tr>
 

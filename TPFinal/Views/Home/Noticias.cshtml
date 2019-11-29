@@ -1,16 +1,18 @@
-﻿@using TPFinal.Models
+﻿@using TPFinal.Models;
+<html>
 
-<table>
-   
-        <tr>
-            <th><h1>ViewBag.ListaNoticia.Titulo</h1></th>
-
-        </tr>
-        <tr>
-
-         
-        </tr>
+    <head>
+        <h1>@ViewBag.Noticia.Titulo</h1>
+    </head>
+    <body>
+        <p>@ViewBag.Noticia.Descripcion</p>
+        
+        <img src="~/Content/@ViewBag.Noticia.Multimedia" alt="Se rompio la foto:(" />
     
-  </table>
+    </body>
+   
+
+</html>
+
 
 
