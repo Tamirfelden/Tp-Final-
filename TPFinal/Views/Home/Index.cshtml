@@ -15,7 +15,9 @@
                 {
                     desc = desc.Substring(1, 50);
                 }
-                <td>@desc ...</td>
+
+                <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia })">...</a></td>
+
             }
 
         </tr>

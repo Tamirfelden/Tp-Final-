@@ -8,6 +8,11 @@ namespace TPFinal.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Noticias(int id)
+        {
+            ViewBag.ListaNoticia = BD.TraerUnaNoticia();
+            return View();
+        }
         public ActionResult Index()
         {
           ViewBag.ListaNoticias = BD.TraerNoticias();

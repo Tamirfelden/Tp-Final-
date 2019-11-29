@@ -107,6 +107,35 @@ namespace TPFinal.Models
             Desconectar(Conexion);
             return Existe;
         }
+
+
+        public static List<Noticias> TraerUnaNoticia()
+        {
+
+            List<Noticias> ListNoticia = new List<Noticias>();
+
+
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "select Titulo, Descripcion, Multimedia, fkCategoria from Noticias where @id = IdNoticia ";
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Noticias obj = new Noticias();
+                obj.IdNoticia = Convert.ToInt32(dataReader["IdNoticia"]);
+                obj.Titulo = Convert.ToString(dataReader["Titulo"]);
+                obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
+                obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
+                obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
+
+
+                ListNoticia.Add(obj);
+            }
+
+            Conexion.Close();
+            return ListNoticia;
+        }
     }
 }
 
