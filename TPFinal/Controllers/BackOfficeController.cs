@@ -11,10 +11,18 @@ namespace TeleNews.Controllers
 {
     public class BackofficeController : Controller
     {
-        public ActionResult SubirNoticias()
-        {           
+        [HttpGet]
+        public ActionResult SubirNoticias() 
+        {
+            
             return View();
         }
+        public ActionResult insertarnoti(Noticias noti)
+        {
+            BD.SubirNoticia(noti);
+            return View("SubirNoticias");
+        }
+        [HttpGet]
         public ActionResult BajarNoticias()
         {
 

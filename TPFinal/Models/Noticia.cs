@@ -7,30 +7,26 @@ namespace TPFinal.Models
 {
     public class Noticias
     {
-        private int _IdNoticia;
-        private string _Titulo;
-        private string _Multimedia;
-        private string _Descripcion;
-        private string _fkCategoria;
+        public int IdNoticia { get; set; }
+        public string Titulo { get; set; }
+        public string Multimedia { get; set; }
+        public string Descripcion { get; set; }
+        public int fkCategoria { get; set; }
 
         public Noticias()
         {
            
         }
 
-        public Noticias(int IdNoticia, string Titulo, string Multimedia, string Descripcion, string fkCategoria)
+        public Noticias(int IdNot, string Tit, string Mult, string Desc, int fkCat)
         {
-            _IdNoticia = IdNoticia;
-            _Titulo = Titulo;
-            _Multimedia = Multimedia;
-            _Descripcion = Descripcion;
-            _fkCategoria = fkCategoria;
+            IdNoticia = IdNoticia;
+            Titulo = Titulo;
+            Multimedia = Multimedia;
+            Descripcion = Descripcion;
+            fkCategoria = fkCategoria;
         }
-
-        public int IdNoticia { get => _IdNoticia; set => _IdNoticia = value; }
-        public string Titulo { get => _Titulo; set => _Titulo = value; }
-        public string Multimedia { get => _Multimedia; set => _Multimedia = value; }
-        public string Descripcion { get => _Descripcion; set => _Descripcion = value; }
-        public string fkCategoria { get => _fkCategoria; set => _fkCategoria = value; }
+        
+       
     }
 }

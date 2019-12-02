@@ -59,7 +59,7 @@ namespace TPFinal.Models
                 obj.Titulo = Convert.ToString(dataReader["Titulo"]);
                 obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
                 obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
-                obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
+                obj.fkCategoria = Convert.ToInt32(dataReader["fkCategoria"]);
 
 
                 ListNoticias.Add(obj);
@@ -124,37 +124,34 @@ namespace TPFinal.Models
                 obj.Titulo = Convert.ToString(dataReader["Titulo"]);
                 obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
                 obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
-                obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
+                obj.fkCategoria = Convert.ToInt32(dataReader["fkCategoria"]);
 
             }
 
             Conexion.Close();
             return obj;
         }
-        public static Noticias SubirNoticia(string Titulo, string Descripcion, string Multimedia, string fkCategoria )
+
+        public static Noticias SubirNoticia(Noticias user)
         {
             Noticias obj = new Noticias();
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandType = System.Data.CommandType.Text;
-            Consulta.CommandText = "insert into noticias " + Titulo + Descripcion + Multimedia + fkCategoria + " ";
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_CargarNoticias";
+            Consulta.Parameters.AddWithValue("Titulo", user.Titulo);
+            Consulta.Parameters.AddWithValue("Descripcion", user.Descripcion);
+            Consulta.Parameters.AddWithValue("Multimedia", user.Multimedia);
+            Consulta.Parameters.AddWithValue("Categoria", user.fkCategoria);
 
-
-                obj.Titulo = Convert.ToString(dataReader["Titulo"]);
-                obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
-                obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
-                obj.fkCategoria = Convert.ToString(dataReader["fkCategoria"]);
-
-            }
+            Consulta.ExecuteNonQuery();
 
             Conexion.Close();
             return obj;
         }
+        }
     }
-}
+
 
 
 

@@ -1,7 +1,20 @@
-﻿
-@{
-    ViewBag.Title = "SubirNoticias";
-}
+﻿@using TPFinal.Models
+@model Noticias
+
 
 <h2>SubirNoticias</h2>
+
+
+@{
+
+    @Html.BeginForm("insertarnoti", "BackOffice", FormMethod.Get)
+
+    {
+        <p>Titulo de la noticia:</p> @Html.TextBoxFor(model => model.Titulo) <br />
+        <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion)
+        <p>Multimedia:</p> @Html.TextBoxFor(model => model.Multimedia)<br />
+        <p>Categoria:</p> @Html.TextBoxFor(model => model.fkCategoria)
+        <input type="submit" value="Enviar" />
+    }
+}
 
