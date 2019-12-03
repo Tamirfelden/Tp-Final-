@@ -22,3 +22,27 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.instagram {
+    padding-left: 5px;
+    width: 200px;
+    height: 100px;
+}
+
+.Twitter {
+    padding-left: 5px;
+    width: 100px;
+    height: 100px;
+}
+
+.Facebook {
+    padding-left: 5px;
+    width: 70px;
+    height: 70px;
+}
+
+.Imagen {
+    padding-left: 5px;
+    width: 211px;
+    height: 175px;
+}

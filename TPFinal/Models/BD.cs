@@ -22,24 +22,7 @@ namespace TPFinal.Models
             Conex.Close();
         }
 
-        public static List<TipoNoticias> TraerCategoria()
-        {
-            List<TipoNoticias> ListCategoria = new List<TipoNoticias>();
-            SqlConnection Conexion = BD.Conectar();
-            SqlCommand Consulta = Conexion.CreateCommand();
-            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            Consulta.CommandText = "sp_TraerCategoria";
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                int IdCategoria = Convert.ToInt32(dataReader["IdCategoria"]);
-                string Nombre = Convert.ToString(dataReader["Nombre"]);
-            }
-
-            Conexion.Close();
-            return ListCategoria;
-        }
-
+       
 
         public static List<Noticias> TraerNoticias()
         {
@@ -68,6 +51,7 @@ namespace TPFinal.Models
             Conexion.Close();
             return ListNoticias;
         }
+
         public static void CrearUsuarios(Usuarios user)
         {
 
@@ -132,9 +116,10 @@ namespace TPFinal.Models
             return obj;
         }
 
-        public static Noticias SubirNoticia(Noticias user)
+        public static void SubirNoticia(Noticias user)
         {
-            Noticias obj = new Noticias();
+
+           
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
@@ -142,15 +127,51 @@ namespace TPFinal.Models
             Consulta.Parameters.AddWithValue("Titulo", user.Titulo);
             Consulta.Parameters.AddWithValue("Descripcion", user.Descripcion);
             Consulta.Parameters.AddWithValue("Multimedia", user.Multimedia);
-            Consulta.Parameters.AddWithValue("Categoria", user.fkCategoria);
+            Consulta.Parameters.AddWithValue("fkCategoria", user.fkCategoria);
 
-            Consulta.ExecuteNonQuery();
-
+            Consulta.ExecuteNonQuery();            
             Conexion.Close();
-            return obj;
+           
         }
+
+        public static List<Categorias> TraerCategoria()
+        {
+            List<Categorias> ListCategoria = new List<Categorias>();
+           
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "select Nombre, idCategorias from Categorias";
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Categorias Cat = new Categorias();
+                Cat.idCategoria = Convert.ToInt32(dataReader["IdCategorias"]);
+                Cat.Categoria= Convert.ToString(dataReader["Nombre"]);
+                ListCategoria.Add(Cat);
+            }
+            
+            return ListCategoria;
         }
+
+            public static void BorrarNoticia(int id)
+        {           
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "delete from Noticias where IdNoticia =" + id + " ";
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+              
+            }
+
+            Conexion.Close();           
+        }
+
     }
+
+}
 
 
 

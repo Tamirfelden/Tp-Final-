@@ -11,16 +11,16 @@ namespace TeleNews.Controllers
 {
     public class BackofficeController : Controller
     {
-        [HttpGet]
         public ActionResult SubirNoticias() 
         {
-            
+            ViewBag.TraerCategoria = BD.TraerCategoria();
             return View();
         }
+       [HttpGet] 
         public ActionResult insertarnoti(Noticias noti)
         {
             BD.SubirNoticia(noti);
-            return View("SubirNoticias");
+            return View("Correcto");
         }
         [HttpGet]
         public ActionResult BajarNoticias()
@@ -94,5 +94,10 @@ namespace TeleNews.Controllers
             return View("Registro");
         }
 
+        public ActionResult TraerCategoria()
+        {
+           
+            return ViewBag.TraerCategoria;
+        }
     }
 }

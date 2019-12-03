@@ -164,17 +164,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\BD.sql" />
+    <Content Include="Content\aguaisrael.jfif" />
     <Content Include="Content\Am Israel Defense Logo.jpg" />
     <Content Include="Content\anitisionismo.png" />
     <Content Include="Content\ataque.png" />
+    <Content Include="Content\ataqueisrael.jpg" />
+    <Content Include="Content\bacterias.jpg" />
     <Content Include="Content\bandera.png" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\descarga.jpg" />
+    <Content Include="Content\diputadoalemania.jpg" />
     <Content Include="Content\elecciones.png" />
     <Content Include="Content\Facebook.png" />
     <Content Include="Content\Instagram.jpg" />
+    <Content Include="Content\Italia Nazismo.jpg" />
+    <Content Include="Content\judioslibres.jpg" />
     <Content Include="Content\partido.png" />
     <Content Include="Content\twitter.png" />
     <Content Include="favicon.ico" />
@@ -217,6 +224,7 @@
     <Content Include="Views\BackOffice\BackOffice.cshtml" />
     <Content Include="Views\BackOffice\SubirNoticias.cshtml" />
     <Content Include="Views\BackOffice\BajarNoticias.cshtml" />
+    <Content Include="Views\BackOffice\BorrarNoticia.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

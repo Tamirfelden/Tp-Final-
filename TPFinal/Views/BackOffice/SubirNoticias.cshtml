@@ -2,18 +2,21 @@
 @model Noticias
 
 
-<h2>SubirNoticias</h2>
+
+
+<h2>SubirNoticias </h2>
 
 
 @{
-
     @Html.BeginForm("insertarnoti", "BackOffice", FormMethod.Get)
 
     {
         <p>Titulo de la noticia:</p> @Html.TextBoxFor(model => model.Titulo) <br />
         <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion)
-        <p>Multimedia:</p> @Html.TextBoxFor(model => model.Multimedia)<br />
-        <p>Categoria:</p> @Html.TextBoxFor(model => model.fkCategoria)
+        <p>Multimedia:</p> @Html.TextBoxFor(model => model.Multimedia, new { type = "file" })<br />
+        <p>Categoria:</p> @Html.DropDownListFor(Model => Model.fkCategoria, new SelectList(ViewBag.TraerCategoria, "IdCategoria", "Categoria"))
+        /*For(Model => Model.fkCategoria, new SelectList(ViewBag.TraerCategoria, "idCategoria", "Categoria"))*/
+        /*<p>Categoria:</p> @Html.TextBoxFor(model => model.fkCategoria)*/
         <input type="submit" value="Enviar" />
     }
 }

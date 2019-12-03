@@ -8,6 +8,7 @@ namespace TPFinal.Controllers
 {
     public class HomeController : Controller
     {
+       
         public ActionResult Noticias(int id)
         {
             ViewBag.Noticia = BD.TraerUnaNoticia(id);

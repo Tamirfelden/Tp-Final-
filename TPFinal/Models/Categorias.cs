@@ -6,9 +6,19 @@ using System.Web;
 namespace TPFinal.Models
 {
     public class Categorias
-    {
-        private string categoria;
+    {      
+        public int idCategoria { get; set ; }
+        public string Categoria { get; set; }
 
-        public string Categoria { get => categoria; set => categoria = value; }
+        public Categorias()
+        {
+
+        }
+
+        public Categorias(int idCat, string Cat)
+        {
+            idCategoria = idCategoria;
+            Categoria = Categoria;            
+        }
     }
 }
