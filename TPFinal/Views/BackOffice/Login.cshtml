@@ -1,17 +1,17 @@
 ﻿@using TPFinal.Models
 @model Usuarios
 
-<h2>Login</h2>
-
-
 @{
-
-    @Html.BeginForm("Login", "BackOffice", FormMethod.Post)
-
-    {
-        <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br />@Html.ValidationMessageFor(model => model.Nombre); <br />
-        <p>Clave:</p> @Html.PasswordFor(model => model.Clave) @Html.ValidationMessageFor(model => model.Clave); <br />
-        <input type="submit" value="Enviar" />
-    }
+    <h2>Login</h2>
 }
+
+
+@using (Html.BeginForm("Login", "BackOffice", FormMethod.Post))
+
+{
+    <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br />@Html.ValidationMessageFor(model => model.Nombre); <br />
+    <p>Clave:</p> @Html.PasswordFor(model => model.Clave) @Html.ValidationMessageFor(model => model.Clave); <br />
+    <input type="submit" value="Enviar" />
+}
+
 

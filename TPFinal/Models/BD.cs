@@ -154,17 +154,14 @@ namespace TPFinal.Models
             return ListCategoria;
         }
 
-            public static void BorrarNoticia(int id)
+            public static void BorrarNoticia(int idNoticia)
         {           
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.Text;
-            Consulta.CommandText = "delete from Noticias where IdNoticia =" + id + " ";
+            Consulta.CommandText = "delete from Noticias where IdNoticia =" + idNoticia + " ";
             SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-              
-            }
+           
 
             Conexion.Close();           
         }
