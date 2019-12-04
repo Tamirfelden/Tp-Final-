@@ -1,16 +1,27 @@
-﻿@using TPFinal.Models;
+﻿<link rel="stylesheet" href="~/Content/animate.css">
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/classy-nav.css">
+<link rel="stylesheet" href="~/Content/font-awesome.min.css">
+<link rel="stylesheet" href="~/Content/magnific-popup.css">
+<link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+<link rel="stylesheet" href="~/Content/style.css">
+<link rel="stylesheet" href="~/Content/catagory.html">
+<link rel="stylesheet" href="~/Content/contact.html">
+<link rel="stylesheet" href="~/Content/single-post.html">
+
+@using TPFinal.Models;
 <html>
 
-    <head>
-        @ViewBag.Noticia.Titulo
-    </head>
-    <body>
-        <p>@ViewBag.Noticia.Descripcion</p>
-        
-        <img src="~/Content/@ViewBag.Noticia.Multimedia" alt="Se rompio la foto:(" />
-    
-    </body>
-   
+<head>
+    @ViewBag.Noticia.Titulo
+</head>
+<body>
+    <p>@ViewBag.Noticia.Descripcion</p>
+
+    <img src="~/Content/@ViewBag.Noticia.Multimedia" alt="Se rompio la foto:(" />
+
+</body>
+
 
 </html>
 

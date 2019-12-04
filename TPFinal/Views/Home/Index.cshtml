@@ -1,12 +1,31 @@
-﻿@using TPFinal.Models
- 
+﻿<link rel="stylesheet" href="~/Content/animate.css">
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/classy-nav.css">
+<link rel="stylesheet" href="~/Content/font-awesome.min.css">
+<link rel="stylesheet" href="~/Content/magnific-popup.css">
+<link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+<link rel="stylesheet" href="~/Content/style.css">
+<link rel="stylesheet" href="~/Content/catagory.html">
+<link rel="stylesheet" href="~/Content/contact.html">
+<link rel="stylesheet" href="~/Content/single-post.html">
+<link rel="stylesheet" href="~/Content/elements.html">
+<link rel="stylesheet" href="~/Content/index.html">
+<link rel="stylesheet" href="~/Content/_fonts.scss">
+<link rel="stylesheet" href="~/Content/_mixin.scss">
+<link rel="stylesheet" href="~/Content/_responsive.scss">
+<link rel="stylesheet" href="~/Content/_theme_color.scss">
+
+
+
+@using TPFinal.Models
+
 <h1>Noticias</h1>
- <table>
+<table>
     @foreach (Noticias Not in ViewBag.ListaNoticias)
     {
         <tr>
             <th>@Not.Titulo</th>
-         
+
         </tr>
         <tr>
             @{
@@ -22,9 +41,9 @@
 
         </tr>
         <tr>
-    <th>
-       <img class="Imagen" src="~/Content/@Not.Multimedia" alt="Se rompio la foto:("/>
-    </th>
+            <th>
+                <img class="Imagen" src="~/Content/@Not.Multimedia" alt="Se rompio la foto:(" />
+            </th>
         </tr>
 
     }

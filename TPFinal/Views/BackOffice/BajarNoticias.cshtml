@@ -1,4 +1,15 @@
-﻿@using TPFinal.Models
+﻿<link rel="stylesheet" href="~/Content/animate.css">
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/classy-nav.css">
+<link rel="stylesheet" href="~/Content/font-awesome.min.css">
+<link rel="stylesheet" href="~/Content/magnific-popup.css">
+<link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+<link rel="stylesheet" href="~/Content/style.css">
+<link rel="stylesheet" href="~/Content/catagory.html">
+<link rel="stylesheet" href="~/Content/contact.html">
+<link rel="stylesheet" href="~/Content/single-post.html">
+
+@using TPFinal.Models
 @model Noticias
 
 @{
@@ -8,8 +19,8 @@
 
 
 @using (Html.BeginForm("BorrarNoti", "BackOffice", FormMethod.Get))
-        {
-<p>Seleccione la noticia que desea borrar:</p> @Html.DropDownListFor(Model => Model.IdNoticia, new SelectList(ViewBag.ListaNoticias, "IdNoticia", "Titulo"))
-<input type="submit" value="Borrar" />
+{
+    <p>Seleccione la noticia que desea borrar:</p> @Html.DropDownListFor(Model => Model.IdNoticia, new SelectList(ViewBag.ListaNoticias, "IdNoticia", "Titulo"))
+    <input type="submit" value="Borrar" />
 
-            }
+}

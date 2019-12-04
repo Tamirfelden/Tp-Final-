@@ -11,7 +11,7 @@ namespace TPFinal.Models
     {
         private static SqlConnection Conectar()
         {
-            string SC = "Server =.; Database = Am Israel Defense Web; user id = alumno; password = alumno1;";
+            string SC = "Server =.; Database = Am Israel Defense Web; user id = alumno; password = alumno;";
             SqlConnection Conex = new SqlConnection(SC);
             Conex.Open();
             return Conex;

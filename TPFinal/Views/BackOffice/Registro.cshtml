@@ -1,21 +1,32 @@
-﻿@using TPFinal.Models
+﻿<link rel="stylesheet" href="~/Content/animate.css">
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<link rel="stylesheet" href="~/Content/classy-nav.css">
+<link rel="stylesheet" href="~/Content/font-awesome.min.css">
+<link rel="stylesheet" href="~/Content/magnific-popup.css">
+<link rel="stylesheet" href="~/Content/owl.carousel.min.css">
+<link rel="stylesheet" href="~/Content/style.css">
+<link rel="stylesheet" href="~/Content/catagory.html">
+<link rel="stylesheet" href="~/Content/contact.html">
+<link rel="stylesheet" href="~/Content/single-post.html">
+
+@using TPFinal.Models
 @model Usuarios
 
 
 
 
 @{
-<h2>Registro</h2>
+    <h2>Registro</h2>
 }
 
-    @using (Html.BeginForm("CrearUsuarios", "BackOffice", FormMethod.Post))
-    {
-        <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br /> @Html.ValidationMessageFor(model => model.Nombre); <br />
-        <p>Contraseña:</p> @Html.PasswordFor(model => model.Clave) @Html.ValidationMessageFor(model => model.Clave); <br />
-        <p>Mail:</p> @Html.TextBoxFor(model => model.Mail) <br />
-        <p>Apellido:</p> @Html.TextBoxFor(model => model.Apellido) <br />
-        <input type="submit" value="Enviar" />
-    }
+@using (Html.BeginForm("CrearUsuarios", "BackOffice", FormMethod.Post))
+{
+    <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br /> @Html.ValidationMessageFor(model => model.Nombre); <br />
+    <p>Contraseña:</p> @Html.PasswordFor(model => model.Clave) @Html.ValidationMessageFor(model => model.Clave); <br />
+    <p>Mail:</p> @Html.TextBoxFor(model => model.Mail) <br />
+    <p>Apellido:</p> @Html.TextBoxFor(model => model.Apellido) <br />
+    <input type="submit" value="Enviar" />
+}
 
 
 
