@@ -226,6 +226,7 @@
     <Content Include="Views\BackOffice\BackOffice.cshtml" />
     <Content Include="Views\BackOffice\SubirNoticias.cshtml" />
     <Content Include="Views\BackOffice\BajarNoticias.cshtml" />
+    <Content Include="Views\BackOffice\UpdateNoticias.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

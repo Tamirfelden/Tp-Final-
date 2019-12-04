@@ -9,8 +9,22 @@ using TPFinal.Models;
 
 namespace TeleNews.Controllers
 {
+    
     public class BackofficeController : Controller
     {
+        public ActionResult UpdateNoti()
+        {
+ 
+            return View();
+        }
+
+        public ActionResult UpdateNoticias()
+        {
+            ViewBag.TraerCategoria = BD.TraerCategoria();
+            ViewBag.ListaNoticias = BD.TraerNoticias();
+            return View();
+        }
+
         public ActionResult BorrarNoti(int idNoticia)
         {
             BD.BorrarNoticia(idNoticia);

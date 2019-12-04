@@ -102,9 +102,7 @@ namespace TPFinal.Models
             Consulta.CommandText = "select Titulo, Descripcion, Multimedia, fkCategoria from Noticias where IdNoticia =" + id + " ";
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
-            {
- 
-                
+            {                
                 obj.Titulo = Convert.ToString(dataReader["Titulo"]);
                 obj.Descripcion = Convert.ToString(dataReader["Descripcion"]);
                 obj.Multimedia = Convert.ToString(dataReader["Multimedia"]);
@@ -166,6 +164,28 @@ namespace TPFinal.Models
             Conexion.Close();           
         }
 
+        public static List<Noticias> UpdateNoticias()
+        {
+            List<Noticias> ListNoticias = new List<Noticias>();
+            Noticias not = new Noticias();
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "update Noticias set Titulo =" + not.Titulo + " , Descripcion= " + not.Descripcion +", Multimedia=" + not.Multimedia + " , fkCategoria= " + not.fkCategoria + " where idNoticia ="+not.IdNoticia+" ";
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                not.Titulo = Convert.ToString(dataReader["Titulo"]);
+                not.Descripcion = Convert.ToString(dataReader["Descripcion"]);
+                not.Multimedia = Convert.ToString(dataReader["Multimedia"]);
+                not.fkCategoria = Convert.ToInt32(dataReader["fkCategoria"]);
+                not.IdNoticia = Convert.ToInt32(dataReader["idNoticia"]);
+                ListNoticias.Add(not);
+            }
+            
+            Conexion.Close();
+            return ListNoticias;
+        }
     }
 
 }
