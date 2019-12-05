@@ -9,14 +9,38 @@
 <link rel="stylesheet" href="~/Content/contact.html">
 <link rel="stylesheet" href="~/Content/single-post.html">
 
-@using TPFinal.Models;
+
+    @using TPFinal.Models;
 <html>
 
-<head>
-    @ViewBag.Noticia.Titulo
-</head>
-<body>
-    <p>@ViewBag.Noticia.Descripcion</p>
+
+
+
+
+<body style="background-image:url('/Content/banderillaisrael.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+
+    <style>
+        h1 {
+            color: #000000;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    </style>
+
+    <h1>
+        @ViewBag.Noticia.Titulo
+    </h1>
+    
+    <style>
+        p {
+            color: #fa0b02;
+            font-weight: bold;
+        }
+    </style>
+
+    <p>
+        @ViewBag.Noticia.Descripcion
+    </p>
 
     <img src="~/Content/@ViewBag.Noticia.Multimedia" alt="Se rompio la foto:(" />
 
@@ -24,6 +48,6 @@
 
 
 </html>
-
+ 
 
 

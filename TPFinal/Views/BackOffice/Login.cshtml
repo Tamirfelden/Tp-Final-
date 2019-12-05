@@ -12,17 +12,31 @@
 @using TPFinal.Models
 @model Usuarios
 
-@{
-    <h2>Login</h2>
-}
+<body style="background-image:url('/Content/banderillaisrael.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+    <style>
+        h2 {
+            color: #000000;
+            font-weight: bold;
+            font-size: 25px;
+        }
+    </style>|
 
+    @{
+        <h2>Login</h2>
+    }
+    <style>
+        p {
+            color: #000000;
+            font-weight: bold;
+            font-size: 16px;
+        }
+    </style>
+    @using (Html.BeginForm("Login", "BackOffice", FormMethod.Post))
 
-@using (Html.BeginForm("Login", "BackOffice", FormMethod.Post))
+    {
+        <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br />@Html.ValidationMessageFor(model => model.Nombre); <br />
+        <p>Clave:</p> @Html.PasswordFor(model => model.Clave) @Html.ValidationMessageFor(model => model.Clave); <br />
+        <input type="submit" value="Enviar" />
+    }
 
-{
-    <p>Usuario:</p> @Html.TextBoxFor(model => model.Nombre) <br />@Html.ValidationMessageFor(model => model.Nombre); <br />
-    <p>Clave:</p> @Html.PasswordFor(model => model.Clave) @Html.ValidationMessageFor(model => model.Clave); <br />
-    <input type="submit" value="Enviar" />
-}
-
-
+</body>

@@ -45,7 +45,7 @@ h6 {
 
 p {
     font-family: $fonts;
-    color: $text-color;
+    color: $dark-color;
     font-size: 15px;
     line-height: 2;
     font-weight: 400;
@@ -189,7 +189,7 @@ img {
 /* :: 3.4.0 Preloader */
 
 .preloader {
-    background-color: $white-color;
+    background-color: $dark-color;
     width: 100%;
     height: 100%;
     position: fixed;
@@ -287,11 +287,11 @@ img {
 /* :: 3.5.0 Miscellaneous */
 
 .tooltip-inner {
-    background-color: $hover-color;
+    background-color: $dark-color;
 }
 
 .tooltip .arrow::before {
-    border-top-color: $hover-color;
+    border-top-color: $dark-color;
 }
 
 .bg-img {
@@ -313,7 +313,7 @@ img {
 }
 
 .bg-gray {
-    background-color: $bg-gray;
+    background-color: $dark-color;
 }
 
 .font-bold {

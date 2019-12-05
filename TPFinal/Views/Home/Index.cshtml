@@ -18,33 +18,36 @@
 
 
 @using TPFinal.Models
+<body style="background-image:url('/Content/banderillaisrael.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 
-<h1>Noticias</h1>
-<table>
-    @foreach (Noticias Not in ViewBag.ListaNoticias)
-    {
-        <tr>
-            <th>@Not.Titulo</th>
+    <h1>Noticias</h1>
+    <table>
 
-        </tr>
-        <tr>
-            @{
-                string desc = Not.Descripcion;
-                if (desc.Length > 50)
-                {
-                    desc = desc.Substring(0, 50);
+        @foreach (Noticias Not in ViewBag.ListaNoticias)
+        {
+            <tr>
+                <th>@Not.Titulo</th>
+
+            </tr>
+            <tr>
+                @{
+                    string desc = Not.Descripcion;
+                    if (desc.Length > 50)
+                    {
+                        desc = desc.Substring(0, 50);
+                    }
+
+                    <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">...</a></td>
+
                 }
 
-                <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">...</a></td>
+            </tr>
+            <tr>
+                <th>
+                    <img class="Imagen" src="~/Content/@Not.Multimedia" alt="Se rompio la foto:(" />
+                </th>
+            </tr>
 
-            }
-
-        </tr>
-        <tr>
-            <th>
-                <img class="Imagen" src="~/Content/@Not.Multimedia" alt="Se rompio la foto:(" />
-            </th>
-        </tr>
-
-    }
-</table>
+        }
+    </table>
+</body>
