@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace TPFinal.Models
 {
@@ -12,7 +13,7 @@ namespace TPFinal.Models
         public string Multimedia { get; set; }
         public string Descripcion { get; set; }
         public int fkCategoria { get; set; }
-
+        public HttpPostedFileBase Foto {get; set; }
         public Noticias()
         {
            

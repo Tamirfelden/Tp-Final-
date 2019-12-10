@@ -16,12 +16,12 @@
     <h2>SubirNoticias </h2>
 }
 
-@using (Html.BeginForm("insertarnoti", "BackOffice", FormMethod.Get))
+@using (Html.BeginForm("insertarnoti", "BackOffice", FormMethod.Post,new {enctype ="multipart/form-data" }))
 {
 
     <p>Titulo de la noticia:</p> @Html.TextBoxFor(model => model.Titulo) <br />
     <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion)
-    <p>Multimedia:</p> @Html.TextBoxFor(model => model.Multimedia, new { type = "file" })<br />
+    <p>Multimedia:</p> @Html.TextBoxFor(model => model.Foto, new { type = "file" });
     <p>Categoria:</p> @Html.DropDownListFor(Model => Model.fkCategoria, new SelectList(ViewBag.TraerCategoria, "IdCategoria", "Categoria"))
 
     <input type="submit" value="Enviar" />

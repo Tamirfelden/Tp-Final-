@@ -38,9 +38,15 @@ namespace TeleNews.Controllers
             return View();
         }
 
-       [HttpGet] 
+       [HttpPost] 
         public ActionResult insertarnoti(Noticias noti)
         {
+            if (noti.Foto != null)
+            {
+                string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
+                noti.Foto.SaveAs(NuevaUbicacion);
+                noti.Multimedia = noti.Foto.FileName;
+            }
             BD.SubirNoticia(noti);
             return View("Correcto");
         }
