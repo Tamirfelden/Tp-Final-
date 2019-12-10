@@ -8,6 +8,7 @@ namespace TPFinal.Models
     public class Categorias
     {      
         public int idCategoria { get; set ; }
+
         public string Categoria { get; set; }
 
         public Categorias()

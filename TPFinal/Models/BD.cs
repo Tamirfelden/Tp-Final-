@@ -164,14 +164,14 @@ namespace TPFinal.Models
             Conexion.Close();           
         }
 
-        public static List<Noticias> UpdateNoticias()
+        public static List<Noticias> UpdateNoticias(int id)
         {
             List<Noticias> ListNoticias = new List<Noticias>();
             Noticias not = new Noticias();
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
             Consulta.CommandType = System.Data.CommandType.Text;
-            Consulta.CommandText = "update Noticias set Titulo =" + not.Titulo + " , Descripcion= " + not.Descripcion +", Multimedia=" + not.Multimedia + " , fkCategoria= " + not.fkCategoria + " where idNoticia ="+not.IdNoticia+" ";
+            Consulta.CommandText = "update Noticias set Titulo =" + not.Titulo + " , Descripcion= " + not.Descripcion +", Multimedia=" + not.Multimedia + " , fkCategoria= " + not.fkCategoria + " where idNoticia ="+id+" ";
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
             {
@@ -186,6 +186,23 @@ namespace TPFinal.Models
             Conexion.Close();
             return ListNoticias;
         }
+        public static void CargarNoticia(Noticias noti)
+        {
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            Consulta.CommandText = "sp_CargarNoticias1";
+            Consulta.Parameters.AddWithValue("IdNoticia", noti.IdNoticia);
+            Consulta.Parameters.AddWithValue("Titulo", noti.Titulo);
+            Consulta.Parameters.AddWithValue("Descripcion", noti.Descripcion);
+            Consulta.Parameters.AddWithValue("Multimedia", noti.Multimedia);
+            Consulta.Parameters.AddWithValue("fkCategoria", noti.fkCategoria);
+
+            Consulta.ExecuteNonQuery();
+            Conexion.Close();
+
+        }
+
     }
 
 }

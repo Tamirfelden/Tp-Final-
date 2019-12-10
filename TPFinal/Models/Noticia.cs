@@ -9,10 +9,15 @@ namespace TPFinal.Models
     public class Noticias
     {
         public int IdNoticia { get; set; }
+        [Required(ErrorMessage = "Ingrese Titulo")]
         public string Titulo { get; set; }
+        [Required(ErrorMessage = "Ingrese Multimedia")]
         public string Multimedia { get; set; }
-        public string Descripcion { get; set; }
+        [Required(ErrorMessage = "Ingrese Descripcion")]
+        public string Descripcion { get; set;}
+        [Required(ErrorMessage = "Ingrese Categoria")]
         public int fkCategoria { get; set; }
+
         public HttpPostedFileBase Foto {get; set; }
         public Noticias()
         {

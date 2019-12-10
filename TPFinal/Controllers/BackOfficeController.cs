@@ -12,9 +12,32 @@ namespace TeleNews.Controllers
     
     public class BackofficeController : Controller
     {
-        public ActionResult UpdateNoti()
+         Noticias noti = new Noticias();
+
+        [HttpGet]
+        public ActionResult Modinoti(Noticias noti)
         {
- 
+            if (noti.Foto != null)
+            {
+                string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
+                noti.Foto.SaveAs(NuevaUbicacion);
+                noti.Multimedia = noti.Foto.FileName;
+            }
+            BD.CargarNoticia(noti);
+            return View();
+        }
+
+        public ActionResult Modificar(int idnoticia)
+        {
+         ViewBag.TraerCategoria = BD.TraerCategoria();
+        
+         noti= BD.TraerUnaNoticia(idnoticia);           
+         return View(noti);
+        }
+
+        public ActionResult UpdateNoti(int id)
+        {
+           
             return View();
         }
 
@@ -41,14 +64,24 @@ namespace TeleNews.Controllers
        [HttpPost] 
         public ActionResult insertarnoti(Noticias noti)
         {
-            if (noti.Foto != null)
+            if (ModelState.IsValid)
             {
-                string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
-                noti.Foto.SaveAs(NuevaUbicacion);
-                noti.Multimedia = noti.Foto.FileName;
+                if (noti.Foto != null)
+                {
+                    string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
+                    noti.Foto.SaveAs(NuevaUbicacion);
+                    noti.Multimedia = noti.Foto.FileName;
+                    BD.CargarNoticia(noti);
+                    return View();
+                }
+                else
+                {
+                 
+                    return View("UpdateNoticias");
+                }
+
             }
-            BD.SubirNoticia(noti);
-            return View("Correcto");
+            return View();
         }
 
         [HttpGet]
@@ -75,9 +108,15 @@ namespace TeleNews.Controllers
         [HttpPost]
         public ActionResult Login(Usuarios user)
         {
-            bool Existe = BD.ValidarUsuarios(user);
-            if (ModelState.IsValid)
+            if (user.Nombre== null|| user.Clave == null)
             {
+                return View("Login");
+            }
+
+            bool Existe = BD.ValidarUsuarios(user);
+
+            
+              
                 if (Existe)
                 {
                     if (user.Nombre == "backoffice" && user.Clave == "backoffice")
@@ -95,18 +134,19 @@ namespace TeleNews.Controllers
                     return View("Login");
                     
                 }
-            }
-            else
-            {
-                return View("Login");
-            }
+            
+            
             
             
         }
 
         [HttpPost]
         public ActionResult CrearUsuarios(Usuarios user)
-        {         
+        {
+            if (user.Nombre == null || user.Clave == null|| user.Apellido == null || user.Mail == null)
+            {
+                return View("Registro");
+            }
             if (ModelState.IsValid)
             {
                 BD.CrearUsuarios(user);
