@@ -8,7 +8,7 @@
 @using (Html.BeginForm("Modinoti", "BackOffice", FormMethod.Get))
 
 {
-    @Html.HiddenFor(model => model.IdNoticia, new { id = Model.IdNoticia })
+    @Html.HiddenFor(model => model.IdNoticia, new { id = Model.IdNoticia } )
     <p>Titulo de la noticia:</p> @Html.TextBoxFor(model => model.Titulo) <br />
     <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion)
     <p>Multimedia:</p> @Html.TextBoxFor(model => model.Multimedia, new { type = "file" }) @Html.ValidationMessageFor(model => model.Foto)<br />
