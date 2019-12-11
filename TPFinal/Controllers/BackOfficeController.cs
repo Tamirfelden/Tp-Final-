@@ -29,10 +29,24 @@ namespace TeleNews.Controllers
 
         public ActionResult Modificar(int idnoticia)
         {
+
          ViewBag.TraerCategoria = BD.TraerCategoria();
         
-         noti= BD.TraerUnaNoticia(idnoticia);           
-         return View(noti);
+         noti= BD.TraerUnaNoticia(idnoticia);
+            if (noti.Foto != null)
+            {
+                string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
+                noti.Foto.SaveAs(NuevaUbicacion);
+                noti.Multimedia = noti.Foto.FileName;
+                BD.CargarNoticia(noti);
+                return View(noti);
+            }
+            else
+            {
+                BD.CargarNoticia(noti);
+                return View(noti);
+            }
+           
         }
 
         public ActionResult UpdateNoti(int id)
@@ -64,24 +78,25 @@ namespace TeleNews.Controllers
        [HttpPost] 
         public ActionResult insertarnoti(Noticias noti)
         {
-            if (ModelState.IsValid)
-            {
+           
                 if (noti.Foto != null)
                 {
                     string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
                     noti.Foto.SaveAs(NuevaUbicacion);
                     noti.Multimedia = noti.Foto.FileName;
                     BD.CargarNoticia(noti);
-                    return View();
+                BD.SubirNoticia(noti);
+                return View("correcto");
+
                 }
                 else
                 {
                  
-                    return View("UpdateNoticias");
+                    return View("");
                 }
 
-            }
-            return View();
+            
+         
         }
 
         [HttpGet]
