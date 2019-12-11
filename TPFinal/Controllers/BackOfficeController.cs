@@ -22,31 +22,47 @@ namespace TeleNews.Controllers
                 string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
                 noti.Foto.SaveAs(NuevaUbicacion);
                 noti.Multimedia = noti.Foto.FileName;
+                BD.CargarNoticia(noti);
             }
+            else
+            {
+                ViewBag.UnaNoti = BD.TraerUnaNoticia(noti.IdNoticia);
+                /*noti.Multimedia = UnaNoti.Multimedia; */
+                BD.CargarNoticia(noti);
+                return View("Correcto");
+            }
+
             BD.CargarNoticia(noti);
-            return View();
+            return View("correcto");
         }
 
+        
         public ActionResult Modificar(int idnoticia)
         {
 
          ViewBag.TraerCategoria = BD.TraerCategoria();
         
          noti= BD.TraerUnaNoticia(idnoticia);
-            if (noti.Foto != null)
-            {
-                string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
-                noti.Foto.SaveAs(NuevaUbicacion);
-                noti.Multimedia = noti.Foto.FileName;
-                BD.CargarNoticia(noti);
-                return View(noti);
-            }
-            else
-            {
-                BD.CargarNoticia(noti);
-                return View(noti);
-            }
-           
+         return View(noti);
+
+            /*     if (noti.Multimedia != null)
+                 {
+
+                     string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Multimedia;
+                     noti.Foto.SaveAs(NuevaUbicacion);
+                     noti.Multimedia = noti.Foto.FileName;
+                     BD.CargarNoticia(noti);
+                     return View(noti);
+                 }
+                 else
+                 {
+
+                     noti = BD.TraerUnaNoticia(idnoticia);
+                     BD.CargarNoticia(noti);
+                     return View(noti);
+                 }
+              */
+
         }
 
         public ActionResult UpdateNoti(int id)
