@@ -202,6 +202,22 @@ namespace TPFinal.Models
             Conexion.Close();
 
         }
+        public static Noticias UnaFoto(Noticias noti)
+        {
+           
+            Noticias not = new Noticias();
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "select Multimedia From Noticias WHERE IdNoticia = "+  noti.IdNoticia+" ";
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                not.Multimedia = Convert.ToString(dataReader["Multimedia"]);                
+            }
+            Conexion.Close();
+            return not;
+        }
 
     }
 

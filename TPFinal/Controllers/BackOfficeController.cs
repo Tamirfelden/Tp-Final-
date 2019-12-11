@@ -14,20 +14,22 @@ namespace TeleNews.Controllers
     {
          Noticias noti = new Noticias();
 
-        [HttpGet]
+        [HttpPost]
         public ActionResult Modinoti(Noticias noti)
         {
+
             if (noti.Foto != null)
             {
+               
                 string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
                 noti.Foto.SaveAs(NuevaUbicacion);
-                noti.Multimedia = noti.Foto.FileName;
-                BD.CargarNoticia(noti);
+                noti.Multimedia = noti.Foto.FileName;               
             }
+
             else
             {
-                ViewBag.UnaNoti = BD.TraerUnaNoticia(noti.IdNoticia);
-                /*noti.Multimedia = UnaNoti.Multimedia; */
+              ViewBag.UnaFoto =  BD.UnaFoto(noti);
+                noti.Multimedia = ViewBag.UnaFoto.Multimedia;
                 BD.CargarNoticia(noti);
                 return View("Correcto");
             }

@@ -5,13 +5,13 @@
     <h2>Actualizar Noticias</h2>
 }
 
-@using (Html.BeginForm("Modinoti", "BackOffice", FormMethod.Get))
+@using (Html.BeginForm("Modinoti", "BackOffice", FormMethod.Post, new { enctype = "multipart/form-data" }))
 
 {
     @Html.HiddenFor(model => model.IdNoticia, new { id = Model.IdNoticia } )
     <p>Titulo de la noticia:</p> @Html.TextBoxFor(model => model.Titulo) <br />
     <p>Descripcion:</p> @Html.TextBoxFor(model => model.Descripcion)
-    <p>Multimedia:</p> @Html.TextBoxFor(model => model.Multimedia, new { type = "file" }) @Html.ValidationMessageFor(model => model.Foto)<br />
+    <p>Multimedia:</p> @Html.TextBoxFor(model => model.Foto, new { type = "file" }) @Html.ValidationMessageFor(model => model.Foto)<br />
     <p>Categoria:</p> @Html.DropDownListFor(Model => Model.fkCategoria, new SelectList(ViewBag.TraerCategoria, "IdCategoria", "Categoria"))
     <input type="submit" value="Continuar" />
 }
