@@ -93,29 +93,31 @@ namespace TeleNews.Controllers
             return View();
         }
 
-       [HttpPost] 
+        [HttpPost]
         public ActionResult insertarnoti(Noticias noti)
         {
-           
-                if (noti.Foto != null)
-                {
-                    string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
-                    noti.Foto.SaveAs(NuevaUbicacion);
-                    noti.Multimedia = noti.Foto.FileName;
-                    BD.CargarNoticia(noti);
+
+            if (noti.Foto != null)
+            {
+                //string NuevaUbicacion = Server.MapPath("~/Content/") + noti.Foto.FileName;
+                FileInfo info = new FileInfo(noti.Foto.FileName);
+                string NuevaUbicacion = Server.MapPath("~/Content/") + info.Name;
+
+                noti.Foto.SaveAs(NuevaUbicacion);
+                noti.Multimedia = info.Name;
+                //noti.Descripcion = Server.MapPath("~/Content/") + noti.Foto.FileName;
+                BD.CargarNoticia(noti);
                 BD.SubirNoticia(noti);
                 return View("correcto");
 
-                }
-                else
-                {
-                 
-                    return View("");
-                }
+            }
+            else
+            {
 
-            
-         
+                return View("");
+            }
         }
+
 
         [HttpGet]
         public ActionResult BajarNoticias()

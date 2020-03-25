@@ -163,6 +163,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\AmIsraelDefenseWeb.sql" />
     <Content Include="App_Data\BD.sql" />
     <Content Include="Content\aguaisrael.jpg" />
     <Content Include="Content\Am Israel Defense Logo.jpg" />
