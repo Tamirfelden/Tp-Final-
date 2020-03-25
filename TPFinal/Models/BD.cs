@@ -152,7 +152,31 @@ namespace TPFinal.Models
             return ListCategoria;
         }
 
-            public static void BorrarNoticia(int idNoticia)
+
+        public static List<Noticias> NoticiasCategoria(int idCat)
+        {
+            List<Noticias> NoticiasXCategoria = new List<Noticias>();
+
+            SqlConnection Conexion = BD.Conectar();
+            SqlCommand Consulta = Conexion.CreateCommand();
+            Consulta.CommandType = System.Data.CommandType.Text;
+            Consulta.CommandText = "select * from Noticias where fkCategoria=" + idCat + " ";
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Noticias not = new Noticias();
+                not.IdNoticia = Convert.ToInt32(dataReader["IdNoticia"]);
+                not.Titulo = Convert.ToString(dataReader["Titulo"]);
+                not.Titulo = Convert.ToString(dataReader["Descripcion"]);
+                not.Titulo = Convert.ToString(dataReader["Multimedia"]);
+                NoticiasXCategoria.Add(not);
+            }
+
+            return NoticiasXCategoria;
+        }
+
+
+        public static void BorrarNoticia(int idNoticia)
         {           
             SqlConnection Conexion = BD.Conectar();
             SqlCommand Consulta = Conexion.CreateCommand();
@@ -222,7 +246,6 @@ namespace TPFinal.Models
     }
 
 }
-
 
 
 

@@ -19,26 +19,41 @@
 
 
 @using TPFinal.Models
-<body style="background-image:url('/Content/banderillaisrael.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+<body style="background-image:url('/Content/fondoblanco.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
 
-    <h1>Noticias</h1>
+    <h1>Para los Amantes de la Verdad</h1>
     <table>
+        <tr>
+
+            </tr>
+
+        <td>Filtrar por categoria </td>
+
+        @foreach (Noticias Not in ViewBag.NoticiasCategoria)
+        {
+    <tr>
+        @Html.DropDownListFor(Model => Model.IdCategorias, new SelectList(ViewBag.NoticiasCategoria, "IdCategorias", "Nombre"))
+    </tr>
+
+
+
+        }
 
         @foreach (Noticias Not in ViewBag.ListaNoticias)
         {
             <tr>
-                <th>@Not.Titulo</th>
+              <h2>  <th>@Not.Titulo</th> </h2>
 
             </tr>
             <tr>
                 @{
                     string desc = Not.Descripcion;
-                    if (desc.Length > 50)
+                    /*if (desc.Length > 50)
                     {
                         desc = desc.Substring(0, 50);
-                    }
+                    }*/
 
-                    <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">...</a></td>
+                   <h3>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">+</a></h3>
 
                 }
 
