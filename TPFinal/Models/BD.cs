@@ -152,7 +152,7 @@ namespace TPFinal.Models
             return ListCategoria;
         }
 
-
+        /*
         public static List<Noticias> NoticiasCategoria(int idCat)
         {
             List<Noticias> NoticiasXCategoria = new List<Noticias>();
@@ -174,6 +174,7 @@ namespace TPFinal.Models
 
             return NoticiasXCategoria;
         }
+        */
 
 
         public static void BorrarNoticia(int idNoticia)

@@ -27,22 +27,18 @@
 
             </tr>
 
-        <td>Filtrar por categoria </td>
+    
 
-        @foreach (Noticias Not in ViewBag.NoticiasCategoria)
-        {
-    <tr>
-        @Html.DropDownListFor(Model => Model.IdCategorias, new SelectList(ViewBag.NoticiasCategoria, "IdCategorias", "Nombre"))
-    </tr>
+      
 
 
 
-        }
+        
 
         @foreach (Noticias Not in ViewBag.ListaNoticias)
         {
             <tr>
-              <h2>  <th>@Not.Titulo</th> </h2>
+              <td>  <th>@Not.Titulo</th> </td>
 
             </tr>
             <tr>
@@ -53,7 +49,7 @@
                         desc = desc.Substring(0, 50);
                     }*/
 
-                   <h3>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">+</a></h3>
+                   <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">+</a></td>
 
                 }
 

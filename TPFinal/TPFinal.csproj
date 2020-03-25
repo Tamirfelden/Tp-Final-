@@ -166,7 +166,6 @@
     <Content Include="App_Data\AmIsraelDefenseWeb.sql" />
     <Content Include="App_Data\BD.sql" />
     <Content Include="Content\aguaisrael.jpg" />
-    <Content Include="Content\Am Israel Defense Logo.jpg" />
     <Content Include="Content\animate.css" />
     <Content Include="Content\anitisionismo.png" />
     <Content Include="Content\ataque.png" />
@@ -194,6 +193,7 @@
     <Content Include="Content\Instagram.jpg" />
     <Content Include="Content\Italia Nazismo.jpg" />
     <Content Include="Content\judioslibres.jpg" />
+    <Content Include="Content\logo.png" />
     <Content Include="Content\magnific-popup.css" />
     <Content Include="Content\owl.carousel.min.css" />
     <Content Include="Content\partido.png" />

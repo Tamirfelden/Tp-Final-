@@ -9,10 +9,10 @@ namespace TPFinal.Controllers
     public class HomeController : Controller
     {
        
-        public ActionResult Noticias(int id, int idCat)
+        public ActionResult Noticias(int id)
         {
             ViewBag.Noticia = BD.TraerUnaNoticia(id);
-            ViewBag.NoticiasCategoria = BD.NoticiasCategoria(idCat);
+            //ViewBag.NoticiasCategoria = BD.NoticiasCategoria(idCat);
             return View("Noticias");
         }
         public ActionResult Index()

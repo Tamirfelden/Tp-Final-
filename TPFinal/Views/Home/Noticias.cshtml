@@ -25,14 +25,23 @@
             font-weight: bold;
             font-size: 25px;
         }
-            
+        h2 {
+            color: #000000;
+            font-weight: bold;
+            font-size: 20px;
+            align-content : center;
+        }
+        h4 {
+            color: #000000;
+            font-size: 18px;
+        }
 
 
     </style>
 
-    <h1>
+    <h2>
         @ViewBag.Noticia.Titulo
-    </h1>
+    </h2>
     
     <style>
         p {
@@ -41,9 +50,9 @@
         }
     </style>
 
-    <h3>
+    <h4>
         @ViewBag.Noticia.Descripcion
-    </h3>
+    </h4>
 
     <img src="~/Content/@ViewBag.Noticia.Multimedia" alt="Se rompio la foto:(" />
 
