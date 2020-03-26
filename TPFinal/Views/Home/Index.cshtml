@@ -19,26 +19,43 @@
 
 
 @using TPFinal.Models
+@model Categorias
+
 <body style="background-image:url('/Content/fondoblanco.jpg');background-attachment: fixed;background-repeat: no-repeat;background-size: cover;">
+
+
 
     <h1>Para los Amantes de la Verdad</h1>
     <table>
         <tr>
-
-            </tr>
-
-    
-
-      
+        </tr>
 
 
 
-        
+
+        @using (Html.BeginForm("FiltrarPorCategoria", "Home", FormMethod.Get))
+        {
+            <p>Filtrar Por Categoria:</p>
+
+
+            @Html.DropDownListFor(Model => Model.idCategoria, new SelectList(ViewBag.ListCategoria, "idCategoria", "Categoria"))
+
+
+
+
+            <input type="submit" value="Buscar" />
+        }
+
+
+
+
+
 
         @foreach (Noticias Not in ViewBag.ListaNoticias)
         {
             <tr>
-              <td>  <th>@Not.Titulo</th> </td>
+                <td>
+                <th>@Not.Titulo</th> </td>
 
             </tr>
             <tr>
@@ -49,7 +66,7 @@
                         desc = desc.Substring(0, 50);
                     }*/
 
-                   <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">+</a></td>
+                    <td>@desc <a href="@Url.Action("Noticias","Home", new {id = Not.IdNoticia }, null)">+</a></td>
 
                 }
 

@@ -81,11 +81,7 @@ namespace TeleNews.Controllers
             return View();
         }
 
-        public ActionResult BorrarNoti(int idNoticia)
-        {
-            BD.BorrarNoticia(idNoticia);
-            return View("Correcto");
-        }
+      
      
 
         public ActionResult SubirNoticias() 
@@ -120,11 +116,18 @@ namespace TeleNews.Controllers
         }
 
 
+        public ActionResult BorrarNoti(int idNoticia)
+        {
+            BD.BorrarNoticia(idNoticia);
+            return View("Correcto");
+        }
+
+
         [HttpGet]
         public ActionResult BajarNoticias()
         {
             ViewBag.ListaNoticias = BD.TraerNoticias();
-            return View("");           
+            return View("");
         }
 
         // GET: Backoffice

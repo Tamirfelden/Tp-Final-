@@ -1,0 +1,13 @@
+﻿body {
+}
+
+
+
+#cabecera
+{
+    height: 150px;
+    background-color: #0094ff;
+    color: white;
+    box-shadow: opx opx 10px #808080;
+    border: 1px dashed #A64E06;
+}

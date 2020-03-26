@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Master.master.cs" Inherits="TPFinal.Master" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+
+            <div> id="cabecera" >
+                <asp:ContentPlaceHolder ID="barra superior" runat="server">
+    </asp:ContentPlaceHolder>
+                 <div id="contenidocabecera" >
+                      <div id="barrahorizontal" >
+                          </div>
+                      <div id="logo" >
+
+                          </div>
+
+                           <div id="titulo" >
+                               <h1> AM ISRAEL DEFENSE WEB</h1>
+                               <h2> Para los Amantes de la Verdad</h2>
+
+                               </div>
+            </div>
+                </div>
+
+            <div id="bajo">
+                 <asp:ContentPlaceHolder ID="login y contacto" runat="server">
+            </asp:ContentPlaceHolder>
+                <div id="pie">
+
+                </div>
+                </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </form>
+</body>
+</html>

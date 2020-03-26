@@ -12,14 +12,20 @@ namespace TPFinal.Controllers
         public ActionResult Noticias(int id)
         {
             ViewBag.Noticia = BD.TraerUnaNoticia(id);
-            //ViewBag.NoticiasCategoria = BD.NoticiasCategoria(idCat);
             return View("Noticias");
         }
-        public ActionResult Index()
+        public ActionResult Index(int idCat)
         {
-          ViewBag.ListaNoticias = BD.TraerNoticias();
+          ViewBag.ListaNoticias = BD.TraerNoticias(idCat);
           return View();
         }
+        [HttpGet]
+        public ActionResult FiltrarPorCategoria()
+        {
+            ViewBag.ListCategoria = BD.TraerCategoria();
+            return View();
+        }
+
 
         public ActionResult About()
         {
@@ -32,6 +38,11 @@ namespace TPFinal.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+        public ActionResult FiltrarPorCategoria(int idCat)
+        {
+            BD.TraerNoticias(idCat);
             return View();
         }
     }
